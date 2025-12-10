@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SkyCast</string>
+    <string name="hourly_forecast">Hourly forecast</string>
+    <string name="forecast">Forecast</string>
+    <string name="seven_days_forecast">7-DAY FORECAST</string>
+    <string name="explore">Explore</string>
+    <string name="enter_cities">Enter cities</string>
+</resources>
