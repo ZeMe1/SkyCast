@@ -1,9 +1,11 @@
 package com.example.skycast.core.di
 
-import com.example.skycast.core.data.repository.WeatherRepositoryImpl
 import com.example.skycast.core.data.repository.LocationRepositoryImpl
+import com.example.skycast.core.data.repository.WeatherRepositoryImpl
 import com.example.skycast.core.domain.repository.LocationRepository
 import com.example.skycast.core.domain.repository.WeatherRepository
+import com.example.skycast.core.domain.weather.WeatherFacade
+import com.example.skycast.core.domain.weather.WeatherFetchStrategyFactory
 import org.koin.dsl.module
 
 
@@ -21,6 +23,19 @@ val repositoryModule = module {
         LocationRepositoryImpl(
             context = get(),
             fusedClient = get()
+        )
+    }
+
+    single {
+        WeatherFetchStrategyFactory(
+            weatherRepository = get(),
+            locationRepository = get()
+        )
+    }
+
+    single {
+        WeatherFacade(
+            strategyFactory = get()
         )
     }
 }

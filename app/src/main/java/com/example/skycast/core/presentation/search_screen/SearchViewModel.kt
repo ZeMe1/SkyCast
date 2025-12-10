@@ -5,14 +5,16 @@ import androidx.lifecycle.viewModelScope
 import com.example.skycast.core.domain.model.CurrentWeather
 import com.example.skycast.core.domain.model.DailyForecastData
 import com.example.skycast.core.domain.model.HourlyForecast
-import com.example.skycast.core.domain.repository.WeatherRepository
+import com.example.skycast.core.domain.repository.WeatherForecastResult
+import com.example.skycast.core.domain.weather.WeatherFacade
+import com.example.skycast.core.domain.weather.WeatherRequest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
-    private val weatherRepository: WeatherRepository,
+    private val weatherFacade: WeatherFacade,
 ): ViewModel() {
     private val _searchQuery = MutableStateFlow("")
     val searchQuery = _searchQuery.asStateFlow()
@@ -42,17 +44,10 @@ class SearchViewModel(
     fun onSearch(queryLocation: String) {
         viewModelScope.launch {
             _isLoading.value = true
-            weatherRepository.getWeatherForecast(queryLocation)
-                .onSuccess { result ->
-
-                    _currentWeather.value = result.currentWeather
-
-                    _dailyForecasts.value = result.dailyForecasts
-
-                    _hourlyForecasts.value = result.hourlyForecasts
-
-                    _location.value = queryLocation
-
+            weatherFacade.fetchWeather(WeatherRequest.Query(queryLocation))
+                .onSuccess { payload ->
+                    updateWeather(payload.forecast)
+                    _location.value = payload.locationLabel
                     _isLoading.value = false
                 }
                 .onFailure { exception ->
@@ -65,5 +60,11 @@ class SearchViewModel(
 
     fun clearTextField() {
         _searchQuery.value = ""
+    }
+
+    private fun updateWeather(forecast: WeatherForecastResult) {
+        _currentWeather.value = forecast.currentWeather
+        _dailyForecasts.value = forecast.dailyForecasts
+        _hourlyForecasts.value = forecast.hourlyForecasts
     }
 }

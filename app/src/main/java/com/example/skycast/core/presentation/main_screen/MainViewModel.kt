@@ -5,8 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.skycast.core.domain.model.CurrentWeather
 import com.example.skycast.core.domain.model.DailyForecastData
 import com.example.skycast.core.domain.model.HourlyForecast
-import com.example.skycast.core.domain.repository.LocationRepository
-import com.example.skycast.core.domain.repository.WeatherRepository
+import com.example.skycast.core.domain.repository.WeatherForecastResult
+import com.example.skycast.core.domain.weather.WeatherFacade
+import com.example.skycast.core.domain.weather.WeatherRequest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,8 +15,7 @@ import kotlinx.coroutines.launch
 
 
 class MainViewModel(
-    private val weatherRepository: WeatherRepository,
-    private val locationRepository: LocationRepository
+    private val weatherFacade: WeatherFacade
 ) : ViewModel() {
 
     private val _currentWeather = MutableStateFlow<CurrentWeather?>(null)
@@ -42,40 +42,14 @@ class MainViewModel(
             _isLoading.value = true
             _error.value = null
 
-            val locationResult = locationRepository.getCurrentLocation()
-            locationResult.onSuccess { loc ->
-                _location.value = loc.label
-                fetchWeatherForecast(location = "${loc.latitude},${loc.longitude}", updateLocation = false)
-            }.onFailure {
-                _error.value = it.message ?: "Location unavailable"
-                _isLoading.value = false
-            }
-        }
-    }
-
-
-    fun fetchWeatherForecast(location: String, updateLocation: Boolean = true) {
-        viewModelScope.launch {
-            _isLoading.value = true
-            _error.value = null
-
-            weatherRepository.getWeatherForecast(location)
-                .onSuccess { result ->
-
-                    _currentWeather.value = result.currentWeather
-
-                    _dailyForecasts.value = result.dailyForecasts
-
-                    _hourlyForecasts.value = result.hourlyForecasts
-
-                    if (updateLocation) {
-                        _location.value = location
-                    }
+            weatherFacade.fetchWeather(WeatherRequest.DeviceLocation)
+                .onSuccess { payload ->
+                    updateWeather(payload.forecast)
+                    _location.value = payload.locationLabel
                     _isLoading.value = false
                 }
-                .onFailure { exception ->
-
-                    _error.value = exception.message ?: "Failed to fetch weather data"
+                .onFailure {
+                    _error.value = it.message ?: "Location unavailable"
                     _isLoading.value = false
                 }
         }
@@ -88,5 +62,11 @@ class MainViewModel(
 
     fun clearError() {
         _error.value = null
+    }
+
+    private fun updateWeather(forecast: WeatherForecastResult) {
+        _currentWeather.value = forecast.currentWeather
+        _dailyForecasts.value = forecast.dailyForecasts
+        _hourlyForecasts.value = forecast.hourlyForecasts
     }
 }
