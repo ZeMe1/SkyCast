@@ -1,8 +1,5 @@
 package com.example.skycast.core.domain.weather
 
-/**
- * Structural Facade: provides a simple entry-point to fetch weather, hiding strategy selection.
- */
 class WeatherFacade(
     private val strategyFactory: WeatherFetchStrategyFactory
 ) {

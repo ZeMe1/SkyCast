@@ -5,9 +5,6 @@ import com.example.skycast.core.domain.repository.WeatherRepository
 import com.example.skycast.core.domain.weather.WeatherFetchStrategy
 import com.example.skycast.core.domain.weather.WeatherPayload
 
-/**
- * Behavioral Strategy: fetches weather by first resolving the device location.
- */
 class DeviceLocationWeatherStrategy(
     private val locationRepository: LocationRepository,
     private val weatherRepository: WeatherRepository

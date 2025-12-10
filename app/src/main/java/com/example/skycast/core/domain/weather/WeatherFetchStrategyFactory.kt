@@ -5,9 +5,6 @@ import com.example.skycast.core.domain.repository.WeatherRepository
 import com.example.skycast.core.domain.weather.strategy.DeviceLocationWeatherStrategy
 import com.example.skycast.core.domain.weather.strategy.QueryWeatherStrategy
 
-/**
- * Creational Factory: builds the appropriate WeatherFetchStrategy based on request type.
- */
 class WeatherFetchStrategyFactory(
     private val weatherRepository: WeatherRepository,
     private val locationRepository: LocationRepository
