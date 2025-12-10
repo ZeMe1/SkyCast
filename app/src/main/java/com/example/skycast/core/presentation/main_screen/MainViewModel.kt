@@ -59,11 +59,6 @@ class MainViewModel(
         _error.value = message
     }
 
-
-    fun clearError() {
-        _error.value = null
-    }
-
     private fun updateWeather(forecast: WeatherForecastResult) {
         _currentWeather.value = forecast.currentWeather
         _dailyForecasts.value = forecast.dailyForecasts

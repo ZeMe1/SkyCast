@@ -25,7 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
@@ -35,7 +34,6 @@ import androidx.navigation.NavController
 import com.example.skycast.R
 import com.example.skycast.core.presentation.navigation.Screen
 import com.example.skycast.core.util.safeClickable
-import java.util.Locale
 import java.util.Locale.getDefault
 
 @Composable
