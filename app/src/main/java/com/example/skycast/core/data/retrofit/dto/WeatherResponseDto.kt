@@ -94,6 +94,6 @@ data class HourDto(
 @Serializable
 data class ConditionDto(
     @SerialName("code")
-    val code: Int = 1003 // partly cloudy default
+    val code: Int = 1003
 )
 

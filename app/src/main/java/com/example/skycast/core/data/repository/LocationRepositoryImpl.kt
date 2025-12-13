@@ -47,6 +47,7 @@ class LocationRepositoryImpl(
         }
     }
 
+    @SuppressLint("MissingPermission")
     private suspend fun getLastKnownLocation(): Location? =
         suspendCancellableCoroutine { cont ->
             fusedClient.lastLocation

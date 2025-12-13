@@ -6,7 +6,6 @@ import com.example.skycast.core.domain.model.HourlyForecast
 
 
 interface WeatherRepository {
-
     suspend fun getWeatherForecast(location: String): Result<WeatherForecastResult>
 }
 
