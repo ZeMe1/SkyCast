@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import com.example.skycast.core.domain.model.DeviceLocation
 import com.example.skycast.core.domain.repository.LocationRepository
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.Locale
 import kotlin.coroutines.resume
