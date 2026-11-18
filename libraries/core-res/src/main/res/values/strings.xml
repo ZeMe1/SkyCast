@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SkyCast</string>
+    <string name="shared_network_error">Ошибка подключения к сети</string>
+    <string name="shared_unknown_error">Произошла непредвиденная ошибка</string>
+    <string name="shared_copied">Скопировано</string>
+    <string name="shared_retry">Повторить</string>
+    <string name="shared_something_went_wrong">Что-то пошло не так</string>
+    <string name="shared_max_char">Максимум %1$d символов</string>
+    <string name="language_picker_title">Выберите язык</string>
+    <string name="language_picker_language_ru">Русский</string>
+    <string name="language_picker_language_kz">Қазақша</string>
+    <string name="language_picker_language_en">English</string>
+    <string name="language_picker_language_changed_message">Язык приложения изменён</string>
+</resources>
