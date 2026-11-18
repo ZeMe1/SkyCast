@@ -1,0 +1,14 @@
+apply from: "$project.rootDir/gradle_scripts/java-version-android-library.gradle"
+
+android {
+    namespace = 'kz.zeme.skycast.core.observable'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':core-error')
+
+    implementation appTooling.bundles.coroutines
+    implementation appLibs.androidx.lifecycle.runtime.ktx
+    implementation appLibs.androidx.lifecycle.livedata.ktx
+}
