@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    alias(appTooling.plugins.compose.compiler)
+    alias(appTooling.plugins.kotlin.parcelize)
+}
+
+apply from: "$project.rootDir/gradle_scripts/environment-constants.gradle"
+
+android {
+    namespace = 'kz.zeme.skycast'
+    compileSdk = appLibs.versions.androidCompileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        applicationId = "kz.zeme.skycast"
+        minSdk = appLibs.versions.androidMinSdkVersion.get().toInteger()
+        targetSdk = appLibs.versions.androidTargetSdkVersion.get().toInteger()
+        versionCode = VERSION_CODE
+        versionName = VERSION_NAME
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable = true
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring appLibs.desugarJdk
+
+    implementation(platform(appTooling.compose.bom))
+    implementation appTooling.bundles.compose
+    implementation appLibs.androidx.core.ktx
+    implementation appLibs.androidx.lifecycle.runtime.ktx
+
+    testImplementation appLibs.junit
+    androidTestImplementation(platform(appTooling.compose.bom))
+    androidTestImplementation appLibs.androidx.junit
+    androidTestImplementation appLibs.androidx.espresso.core
+}
