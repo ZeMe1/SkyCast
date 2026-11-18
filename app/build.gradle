@@ -57,10 +57,32 @@ android {
 dependencies {
     coreLibraryDesugaring appLibs.desugarJdk
 
+    implementation project(':core')
+    implementation project(':core-res')
+    implementation project(':core-activity')
+    implementation project(':core-error')
+    implementation project(':core-observable')
+    implementation project(':core-navigation')
+    implementation project(':core-fragment')
+    implementation project(':core-di')
+    implementation project(':core-ui')
+    implementation project(':core-network')
+    implementation project(':core-env-props')
+    implementation project(':core-locale')
+    implementation project(':core-locale-view')
+
     implementation(platform(appTooling.compose.bom))
     implementation appTooling.bundles.compose
+    implementation appTooling.compose.livedata
+    implementation appLibs.bundles.koin
     implementation appLibs.androidx.core.ktx
+    implementation appLibs.androidx.appcompat
+    implementation appLibs.androidx.fragment.ktx
+    implementation appLibs.androidx.activity.ktx
+    implementation appLibs.material
     implementation appLibs.androidx.lifecycle.runtime.ktx
+    implementation appLibs.androidx.lifecycle.viewmodel.ktx
+    implementation appLibs.androidx.lifecycle.livedata.ktx
 
     testImplementation appLibs.junit
     androidTestImplementation(platform(appTooling.compose.bom))

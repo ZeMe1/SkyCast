@@ -1,47 +1,37 @@
 package kz.zeme.skycast
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import kz.zeme.skycast.ui.theme.SkyCastTheme
+import androidx.appcompat.app.AppCompatActivity
+import kz.zeme.skycast.core.navigation.ExternalModulesNavigator
+import kz.zeme.skycast.features.main.MainActivityVM
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity(
+    R.layout.main_activity,
+) {
+
+    private val mainActivityVM: MainActivityVM by viewModel()
+    private val navigator: ExternalModulesNavigator by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            SkyCastTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        startObserving()
+
+        if (savedInstanceState != null) return
+
+        mainActivityVM.onCreate(intent.extras, withSplash = false)
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        mainActivityVM.onRedirect(intent)
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SkyCastTheme {
-        Greeting("Android")
+    private fun startObserving() {
+        mainActivityVM.navigation.observeEvent(this) { navigation ->
+            navigator.navigate(navigation)
+        }
     }
 }
