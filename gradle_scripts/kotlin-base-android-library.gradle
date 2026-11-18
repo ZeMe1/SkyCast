@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.plugin.parcelize'
+
+android {
+    compileSdk = appLibs.versions.androidCompileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        minSdk = appLibs.versions.androidMinSdkVersion.get().toInteger()
+    }
+    lint {
+        disable.add('NullSafeMutableLiveData')
+    }
+}
+
+dependencies {
+    implementation appTooling.kotlin.stdLib
+    implementation appTooling.kotlin.collectionsImmutable
+}
