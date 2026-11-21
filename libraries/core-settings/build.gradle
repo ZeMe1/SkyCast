@@ -1,0 +1,17 @@
+apply from: "$project.rootDir/gradle_scripts/java-version-android-library.gradle"
+
+android {
+    namespace = 'kz.zeme.skycast.core.settings'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':core-error')
+    implementation project(':core-di')
+
+    implementation appLibs.androidx.core.ktx
+    implementation appLibs.bundles.koin
+
+    testImplementation appLibs.junit
+    testImplementation appTooling.kotlinx.coroutines.core
+}
