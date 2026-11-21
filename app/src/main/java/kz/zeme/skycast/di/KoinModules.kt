@@ -8,6 +8,7 @@ import kz.zeme.skycast.core.network.di.coreNetworkModule
 import kz.zeme.skycast.core.settings.di.coreSettingsModule
 import kz.zeme.skycast.core.ui.di.coreUiModule
 import kz.zeme.skycast.core.weather.di.coreWeatherModule
+import kz.zeme.skycast.home.di.homeModule
 import kz.zeme.skycast.settings.di.settingsModule
 import org.koin.core.module.Module
 
@@ -23,6 +24,7 @@ open class KoinModules {
         coreLocationModule,
         coreWeatherModule,
         settingsModule,
+        homeModule,
         appModule,
     )
 }

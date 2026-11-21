@@ -74,6 +74,7 @@ dependencies {
     implementation project(':core-location')
     implementation project(':core-weather')
     implementation project(':settings')
+    implementation project(':home')
 
     implementation(platform(appTooling.compose.bom))
     implementation appTooling.bundles.compose
