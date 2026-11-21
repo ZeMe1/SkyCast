@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
@@ -29,7 +28,7 @@ import kz.zeme.skycast.core.res.theme.SkyCastTheme
 fun TextStyle.shimmer(
     enabled: Boolean,
     backgroundColor: Color = this.color,
-    shimmerColor: Color = SkyCastTheme.colors.mainShimmer,
+    shimmerColor: Color = SkyCastTheme.colors.shimmerHighlight,
 ): TextStyle = copy(
     brush = if (enabled) shimmerBrush(
         startOffset = Offset(0f, 150f),
@@ -41,7 +40,7 @@ fun TextStyle.shimmer(
 @Composable
 fun shimmerBrush(
     backgroundColor: Color = SkyCastTheme.colors.mainShimmer,
-    shimmerColor: Color = remember { Color(color = 0xFF272727) },
+    shimmerColor: Color = SkyCastTheme.colors.shimmerHighlight,
     durationMs: Int = 800,
     startOffset: Offset = Offset(0f, 0f),
 ): Brush = shimmerBrush(
@@ -86,19 +85,19 @@ fun shimmerBrush(
 }
 
 @Composable
-@Preview(showBackground = true, name = "Shimmer")
+@Preview(showBackground = true, backgroundColor = 0xFF2B83E2, name = "Shimmer")
 private fun ShimmerPreview() {
     Spacer(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth()
             .height(60.dp)
-            .clip(RoundedCornerShape(4.dp))
+            .clip(RoundedCornerShape(12.dp))
             .background(
                 brush = shimmerBrush(
                     startOffset = Offset(50f, 50f),
-                    backgroundColor = Color.DarkGray,
-                    shimmerColor = Color.Transparent,
+                    backgroundColor = SkyCastTheme.colors.mainShimmer,
+                    shimmerColor = SkyCastTheme.colors.shimmerHighlight,
                 ),
             ),
     )
