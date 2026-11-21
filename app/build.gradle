@@ -70,6 +70,7 @@ dependencies {
     implementation project(':core-env-props')
     implementation project(':core-locale')
     implementation project(':core-locale-view')
+    implementation project(':core-settings')
 
     implementation(platform(appTooling.compose.bom))
     implementation appTooling.bundles.compose
