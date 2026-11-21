@@ -18,6 +18,7 @@ desugarJdk = "2.1.5"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
+playServicesLocation = "21.3.0"
 
 [libraries]
 desugarJdk = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdk" }
@@ -48,6 +49,7 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 
 [bundles]
 koin = [

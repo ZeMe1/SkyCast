@@ -71,6 +71,7 @@ dependencies {
     implementation project(':core-locale')
     implementation project(':core-locale-view')
     implementation project(':core-settings')
+    implementation project(':core-location')
 
     implementation(platform(appTooling.compose.bom))
     implementation appTooling.bundles.compose
