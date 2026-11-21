@@ -110,7 +110,7 @@ fun TextField(
 
     val customTextSelectionColors = TextSelectionColors(
         handleColor = cursorHandleColor,
-        backgroundColor = Color.Gray,
+        backgroundColor = SkyCastTheme.colors.buttonPrimary,
     )
     val interactionSource = remember { MutableInteractionSource() }
     val hasFocus = interactionSource.collectIsFocusedAsState()
@@ -306,7 +306,7 @@ internal class TextFieldPreviewParameterProvider : PreviewParameterProvider<Text
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFF010101,
+    backgroundColor = 0xFF2B83E2,
     name = "StandardTextField",
 )
 @Composable

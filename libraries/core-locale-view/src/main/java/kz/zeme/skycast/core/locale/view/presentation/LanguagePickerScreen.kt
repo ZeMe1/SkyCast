@@ -105,7 +105,7 @@ private fun DefaultErrorView(
             .height(220.dp),
         errorMessage = error?.message ?: stringResource(R.string.shared_something_went_wrong),
         onRefresh = onRefresh,
-        backgroundColor = SkyCastTheme.colors.basicDark,
+        backgroundColor = SkyCastTheme.colors.sheetBg,
     )
 }
 
@@ -165,7 +165,7 @@ private fun LanguageListContent(
             if (languages.lastOrNull() != language) {
                 HorizontalDivider(
                     modifier = Modifier.padding(start = 16.dp),
-                    color = SkyCastTheme.colors.buttonDisabled.copy(alpha = 0.5f),
+                    color = SkyCastTheme.colors.divider,
                     thickness = 1.dp,
                 )
             }
@@ -246,7 +246,7 @@ private class LanguagePickerScreenPreviewParameterProvider :
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFF010101,
+    backgroundColor = 0xFF2B83E2,
 )
 @Composable
 private fun LanguagePickerScreenPreview(

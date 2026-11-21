@@ -2,7 +2,6 @@ package kz.zeme.skycast.core.ui.extensions
 
 import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
@@ -13,7 +12,7 @@ import kz.zeme.skycast.core.res.theme.SkyCastTheme
 fun Modifier.shimmer(shape: Shape = RectangleShape): Modifier = composed {
     shimmer(
         backgroundColor = SkyCastTheme.colors.mainShimmer,
-        shimmerColor = remember { Color(color = 0xFF272727) },
+        shimmerColor = SkyCastTheme.colors.shimmerHighlight,
         shape = shape,
     )
 }

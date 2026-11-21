@@ -1,5 +1,6 @@
 package kz.zeme.skycast.core.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -68,6 +69,7 @@ fun DefaultErrorScreen(
             Button(
                 onClick = onRefresh,
                 shape = RoundedCornerShape(12.dp),
+                border = BorderStroke(1.dp, SkyCastTheme.colors.gray8),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = SkyCastTheme.colors.buttonPrimary,
                     contentColor = SkyCastTheme.colors.textPrimary,

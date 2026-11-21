@@ -14,7 +14,7 @@ fun TextStyle.primary(): TextStyle = copy(color = SkyCastTheme.colors.textPrimar
 fun TextStyle.secondary(): TextStyle = copy(color = SkyCastTheme.colors.textSecondary)
 
 @Composable
-fun TextStyle.error(): TextStyle = copy(color = SkyCastTheme.colors.basicError)
+fun TextStyle.error(): TextStyle = copy(color = SkyCastTheme.colors.errorText)
 
 @Composable
 fun TextStyle.enabled(enabled: Boolean): TextStyle = copy(color = color.enabled(enabled))

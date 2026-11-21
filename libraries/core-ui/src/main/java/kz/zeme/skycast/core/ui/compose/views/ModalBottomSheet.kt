@@ -28,9 +28,9 @@ import kz.zeme.skycast.core.res.theme.primary
 fun ModalBottomSheet(
     modifier: Modifier = Modifier,
     showHandle: Boolean = true,
-    shape: RoundedCornerShape = RoundedCornerShape(topStart = 14.dp, topEnd = 14.dp),
-    backgroundColor: Color = SkyCastTheme.colors.basicDark,
-    handleColor: Color = SkyCastTheme.colors.textSecondary,
+    shape: RoundedCornerShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+    backgroundColor: Color = SkyCastTheme.colors.sheetBg,
+    handleColor: Color = SkyCastTheme.colors.handle,
     body: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
@@ -58,9 +58,9 @@ fun ModalBottomSheet(
     modifier: Modifier = Modifier,
     sheetModifier: Modifier = Modifier,
     showHandle: Boolean = true,
-    shape: RoundedCornerShape = RoundedCornerShape(topStart = 14.dp, topEnd = 14.dp),
-    backgroundColor: Color = SkyCastTheme.colors.basicDark,
-    handleColor: Color = SkyCastTheme.colors.textSecondary,
+    shape: RoundedCornerShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+    backgroundColor: Color = SkyCastTheme.colors.sheetBg,
+    handleColor: Color = SkyCastTheme.colors.handle,
     topFloatingView: @Composable ColumnScope.() -> Unit = {},
     body: @Composable ColumnScope.() -> Unit,
 ) {
@@ -92,9 +92,9 @@ fun ModalBottomSheet(
 fun ModalBottomSheetBox(
     modifier: Modifier = Modifier,
     showHandle: Boolean = true,
-    shape: RoundedCornerShape = RoundedCornerShape(topStart = 14.dp, topEnd = 14.dp),
-    backgroundColor: Color = SkyCastTheme.colors.basicDark,
-    handleColor: Color = SkyCastTheme.colors.textSecondary,
+    shape: RoundedCornerShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+    backgroundColor: Color = SkyCastTheme.colors.sheetBg,
+    handleColor: Color = SkyCastTheme.colors.handle,
     body: @Composable BoxScope.(PaddingValues) -> Unit,
 ) {
     Box(
@@ -118,7 +118,7 @@ fun ModalBottomSheetBox(
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFF010101)
+@Preview(showBackground = true, backgroundColor = 0xFF2B83E2)
 @Composable
 internal fun ModalBottomSheetPreview() {
     ModalBottomSheet(modifier = Modifier.fillMaxWidth()) {
@@ -130,7 +130,7 @@ internal fun ModalBottomSheetPreview() {
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFF010101)
+@Preview(showBackground = true, backgroundColor = 0xFF2B83E2)
 @Composable
 internal fun ModalBottomSheetBoxPreview() {
     ModalBottomSheetBox(modifier = Modifier.fillMaxWidth()) { paddingValues ->
@@ -144,7 +144,7 @@ internal fun ModalBottomSheetBoxPreview() {
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFF010101)
+@Preview(showBackground = true, backgroundColor = 0xFF2B83E2)
 @Composable
 internal fun ModalBottomSheetFloatingPreview() {
     ModalBottomSheet(
@@ -155,12 +155,12 @@ internal fun ModalBottomSheetFloatingPreview() {
                     .fillMaxWidth()
                     .padding(8.dp)
                     .height(48.dp)
-                    .background(Color.DarkGray, RoundedCornerShape(8.dp)),
+                    .background(SkyCastTheme.colors.basicDark, RoundedCornerShape(8.dp)),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
                     text = "Парящая плашка над шторкой",
-                    color = Color.White,
+                    color = SkyCastTheme.colors.textPrimary,
                 )
             }
         },
