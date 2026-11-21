@@ -36,6 +36,8 @@ val appModule = module {
     single {
         AppGlobalNavigator(
             activityProvider = get(),
+            homeRouter = get(),
+            settingsRouter = get(),
             languagePickerRouter = get(),
         )
     }.binds(
