@@ -5,7 +5,7 @@ import org.koin.core.component.KoinComponent
 @Suppress("ConstPropertyName")
 object BaseSettings {
 
-    const val baseUrl: String = "https://api.example.com/"
+    const val baseUrl: String = "https://api.open-meteo.com/"
     const val filesUrl: String = "https://files.example.com/"
 
     object Property : KoinComponent {
