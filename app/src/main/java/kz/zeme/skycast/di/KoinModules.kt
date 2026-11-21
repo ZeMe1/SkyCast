@@ -2,6 +2,7 @@ package kz.zeme.skycast.di
 
 import kz.zeme.skycast.core.locale.di.coreLocaleModule
 import kz.zeme.skycast.core.locale.view.di.coreLocaleViewModule
+import kz.zeme.skycast.core.location.di.coreLocationModule
 import kz.zeme.skycast.core.navigation.di.coreNavigationModule
 import kz.zeme.skycast.core.network.di.coreNetworkModule
 import kz.zeme.skycast.core.settings.di.coreSettingsModule
@@ -17,6 +18,7 @@ open class KoinModules {
         coreLocaleModule,
         coreLocaleViewModule,
         coreSettingsModule,
+        coreLocationModule,
         appModule,
     )
 }
