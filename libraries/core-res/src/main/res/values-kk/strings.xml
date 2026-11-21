@@ -12,4 +12,79 @@
     <string name="language_picker_language_kz">Қазақша</string>
     <string name="language_picker_language_en">English</string>
     <string name="language_picker_language_changed_message">Қолданба тілі өзгертілді</string>
+
+    <string name="home_title">Ауа райы</string>
+    <string name="home_max_temp">Макс. %1$s</string>
+    <string name="home_min_temp">Мин. %1$s</string>
+    <string name="home_feels_like">Сезіледі %1$s</string>
+    <string name="home_hourly_title">Сағат бойынша</string>
+    <string name="home_now">Қазір</string>
+    <string name="home_sunrise">Күн шығуы</string>
+    <string name="home_sunset">Күн батуы</string>
+    <string name="home_daily_title">7 күндік болжам</string>
+    <string name="home_today">Бүгін</string>
+    <string name="home_details_title">Мәліметтер</string>
+    <string name="home_wind_label">Жел</string>
+    <string name="home_wind_gusts">%1$s · екпіні %2$s</string>
+    <string name="home_humidity_label">Ылғалдылық</string>
+    <string name="home_dew_point">Шық нүктесі %1$s</string>
+    <string name="home_pressure_label">Қысым</string>
+    <string name="home_pressure_value">%1$d гПа</string>
+    <string name="home_uv_label">УК-индекс</string>
+    <string name="home_no_connection">Байланыс жоқ</string>
+    <string name="home_error_network">Желіге қосылу қатесі. Интернетті тексеріп, қайталап көріңіз.</string>
+
+    <string name="weather_condition_clear">Ашық</string>
+    <string name="weather_condition_mainly_clear">Негізінен ашық</string>
+    <string name="weather_condition_partly_cloudy">Ауыспалы бұлтты</string>
+    <string name="weather_condition_overcast">Бұлтты</string>
+    <string name="weather_condition_fog">Тұман</string>
+    <string name="weather_condition_drizzle">Сіркіреу</string>
+    <string name="weather_condition_rain">Жаңбыр</string>
+    <string name="weather_condition_snow">Қар</string>
+    <string name="weather_condition_thunderstorm">Найзағай</string>
+
+    <string name="wind_dir_n">С</string>
+    <string name="wind_dir_ne">СШ</string>
+    <string name="wind_dir_e">Ш</string>
+    <string name="wind_dir_se">ОШ</string>
+    <string name="wind_dir_s">О</string>
+    <string name="wind_dir_sw">ОБ</string>
+    <string name="wind_dir_w">Б</string>
+    <string name="wind_dir_nw">СБ</string>
+
+    <string name="uv_level_low">Төмен</string>
+    <string name="uv_level_moderate">Орташа</string>
+    <string name="uv_level_high">Жоғары</string>
+    <string name="uv_level_very_high">Өте жоғары</string>
+    <string name="uv_level_extreme">Төтенше</string>
+
+    <string name="weekday_short_mon">Дс</string>
+    <string name="weekday_short_tue">Сс</string>
+    <string name="weekday_short_wed">Ср</string>
+    <string name="weekday_short_thu">Бс</string>
+    <string name="weekday_short_fri">Жм</string>
+    <string name="weekday_short_sat">Сн</string>
+    <string name="weekday_short_sun">Жк</string>
+
+    <string name="unit_temp_celsius_short">°C</string>
+    <string name="unit_temp_fahrenheit_short">°F</string>
+    <string name="unit_wind_ms_short">м/с</string>
+    <string name="unit_wind_kmh_short">км/сағ</string>
+    <string name="unit_wind_ms_value">%1$s м/с</string>
+    <string name="unit_wind_kmh_value">%1$s км/сағ</string>
+    <string name="unit_pressure_hpa_short">гПа</string>
+
+    <string name="settings_title">Баптаулар</string>
+    <string name="settings_group_units">Өлшем бірліктері</string>
+    <string name="settings_temperature">Температура</string>
+    <string name="settings_wind_speed">Жел жылдамдығы</string>
+    <string name="settings_group_app">Қолданба</string>
+    <string name="settings_app_language">Қолданба тілі</string>
+
+    <string name="unit_picker_celsius">Цельсий (°C)</string>
+    <string name="unit_picker_fahrenheit">Фаренгейт (°F)</string>
+    <string name="unit_picker_ms">Секундына метр (м/с)</string>
+    <string name="unit_picker_kmh">Сағатына километр (км/сағ)</string>
+    <string name="unit_picker_changed_message">Өлшем бірлігі өзгертілді</string>
 </resources>
