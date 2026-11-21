@@ -1,0 +1,24 @@
+apply from: "$project.rootDir/gradle_scripts/java-version-android-library.gradle"
+
+android {
+    namespace = 'kz.zeme.skycast.core.weather'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':core-error')
+    implementation project(':core-di')
+    implementation project(':core-network')
+    implementation project(':core-env-props')
+    implementation project(':core-settings')
+    implementation project(':core-location')
+
+    implementation appTooling.bundles.coroutines
+    implementation appLibs.bundles.koin
+    implementation appLibs.retrofit
+    implementation appLibs.gson
+
+    testImplementation appLibs.junit
+    testImplementation appLibs.okhttp
+    testImplementation appTooling.kotlinx.coroutines.core
+}
