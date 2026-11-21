@@ -5,7 +5,6 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -310,7 +309,7 @@ private fun HourlyForecastSection(
 private fun HourlyForecastCard(
     item: Hour,
 ) {
-    HourlyCardContainer(isActive = item.isCurrent) {
+    HourlyCardContainer {
         Text(
             text = if (item.isCurrent) stringResource(R.string.home_now) else item.hourLabel,
             style = if (item.isCurrent) {
@@ -349,7 +348,7 @@ private fun HourlyForecastCard(
 private fun SunEventForecastCard(
     item: SunEvent,
 ) {
-    HourlyCardContainer(isActive = false) {
+    HourlyCardContainer {
         Text(
             text = item.timeLabel,
             style = SkyCastTheme.typography.bodySmall.secondary().copy(
@@ -381,26 +380,13 @@ private fun SunEventForecastCard(
 
 @Composable
 private fun HourlyCardContainer(
-    isActive: Boolean,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val backgroundColor =
-        if (isActive) SkyCastTheme.colors.buttonPrimary
-        else SkyCastTheme.colors.basicDark
-    val borderColor =
-        if (isActive) SkyCastTheme.colors.gray8
-        else SkyCastTheme.colors.cardBorder
-
     Column(
         modifier = Modifier
             .width(68.dp)
             .clip(RoundedCornerShape(14.dp))
-            .background(backgroundColor)
-            .border(
-                width = 1.dp,
-                color = borderColor,
-                shape = RoundedCornerShape(14.dp),
-            )
+            .background(SkyCastTheme.colors.basicDark)
             .padding(horizontal = 6.dp, vertical = 12.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(6.dp),
@@ -427,12 +413,7 @@ private fun DailyForecastSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(14.dp))
-                .background(SkyCastTheme.colors.basicDark)
-                .border(
-                    width = 1.dp,
-                    color = SkyCastTheme.colors.cardBorder,
-                    shape = RoundedCornerShape(14.dp),
-                ),
+                .background(SkyCastTheme.colors.basicDark),
         ) {
             daily.forEach { item ->
                 DailyForecastRow(item = item)
@@ -664,11 +645,6 @@ private fun WeatherDetailCard(
         modifier = modifier
             .clip(RoundedCornerShape(14.dp))
             .background(SkyCastTheme.colors.basicDark)
-            .border(
-                width = 1.dp,
-                color = SkyCastTheme.colors.cardBorder,
-                shape = RoundedCornerShape(14.dp),
-            )
             .padding(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {

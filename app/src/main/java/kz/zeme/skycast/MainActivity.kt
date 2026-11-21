@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(
 
         if (savedInstanceState != null) return
 
-        mainActivityVM.onCreate(intent.extras, withSplash = false)
+        mainActivityVM.onCreate(intent.extras, withSplash = true)
     }
 
     override fun onNewIntent(intent: Intent) {

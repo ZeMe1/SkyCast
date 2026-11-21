@@ -19,7 +19,7 @@ class MainActivityVM(
 
     fun onCreate(
         extras: Bundle?,
-        withSplash: Boolean = false,
+        withSplash: Boolean = true,
     ) {
         val redirect = appRedirectParser.getRedirectOrNull(extras)
         _navigation.value = BaseNavigation.ShowMain(
